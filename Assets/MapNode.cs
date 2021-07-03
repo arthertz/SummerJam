@@ -20,4 +20,19 @@ public class MapNode : MonoBehaviour
     {
         
     }
+
+    void DrawDebugConnection(MapNode otherNode) {
+        if (!otherNode) {
+            return;
+        }
+        Gizmos.DrawLine(transform.position, otherNode.transform.position);
+    }
+
+    void OnDrawGizmos () {
+        Gizmos.color = Color.red;
+        DrawDebugConnection(westNode);
+        DrawDebugConnection(southNode);
+        DrawDebugConnection(eastNode);
+        DrawDebugConnection(northNode);
+    }
 }
