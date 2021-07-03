@@ -157,6 +157,7 @@ MonoBehaviour:
   eastNode: {fileID: 0}
   southNode: {fileID: 0}
   westNode: {fileID: 1394954824}
+  cameraTarget: {fileID: 0}
 --- !u!212 &162498218
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -216,7 +217,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162498216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.36, y: -1.97, z: -0.4854342}
+  m_LocalPosition: {x: 7.36, y: -1.97, z: 0}
   m_LocalScale: {x: 4.1604295, y: 2.32979, z: 2.0041206}
   m_Children: []
   m_Father: {fileID: 0}
@@ -256,6 +257,7 @@ MonoBehaviour:
   eastNode: {fileID: 1290556229}
   southNode: {fileID: 0}
   westNode: {fileID: 0}
+  cameraTarget: {fileID: 0}
 --- !u!212 &205036923
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -315,7 +317,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205036921}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.64, y: -1.97, z: -0.4854342}
+  m_LocalPosition: {x: -4.64, y: -1.97, z: 0}
   m_LocalScale: {x: 4.1604295, y: 2.32979, z: 2.0041206}
   m_Children: []
   m_Father: {fileID: 0}
@@ -398,7 +400,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 217642318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.64, y: 2.03, z: -0.4854342}
+  m_LocalPosition: {x: -4.64, y: 2.03, z: 0}
   m_LocalScale: {x: 4.1604295, y: 2.32979, z: 2.0041206}
   m_Children: []
   m_Father: {fileID: 0}
@@ -420,6 +422,7 @@ MonoBehaviour:
   eastNode: {fileID: 1036158648}
   southNode: {fileID: 908341843}
   westNode: {fileID: 0}
+  cameraTarget: {fileID: 0}
 --- !u!1 &319255259
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,6 +457,7 @@ MonoBehaviour:
   eastNode: {fileID: 1394954824}
   southNode: {fileID: 0}
   westNode: {fileID: 1290556229}
+  cameraTarget: {fileID: 0}
 --- !u!212 &319255261
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -513,7 +517,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 319255259}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3600001, y: -1.97, z: -0.4854342}
+  m_LocalPosition: {x: 1.3600001, y: -1.97, z: 0}
   m_LocalScale: {x: 4.1604295, y: 2.32979, z: 2.0041206}
   m_Children: []
   m_Father: {fileID: 0}
@@ -572,7 +576,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 2.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -636,6 +640,7 @@ MonoBehaviour:
   eastNode: {fileID: 0}
   southNode: {fileID: 319255260}
   westNode: {fileID: 0}
+  cameraTarget: {fileID: 0}
 --- !u!212 &566819513
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -695,7 +700,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 566819511}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3600001, y: 0.03, z: -0.4854342}
+  m_LocalPosition: {x: 1.3600001, y: 0.03, z: 0}
   m_LocalScale: {x: 4.1604295, y: 2.32979, z: 2.0041206}
   m_Children: []
   m_Father: {fileID: 0}
@@ -735,6 +740,7 @@ MonoBehaviour:
   eastNode: {fileID: 0}
   southNode: {fileID: 162498217}
   westNode: {fileID: 0}
+  cameraTarget: {fileID: 0}
 --- !u!212 &615474571
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -794,7 +800,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 615474569}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.36, y: 0.029999971, z: -0.4854342}
+  m_LocalPosition: {x: 7.36, y: 0.029999971, z: 0}
   m_LocalScale: {x: 4.1604295, y: 2.32979, z: 2.0041206}
   m_Children: []
   m_Father: {fileID: 0}
@@ -831,6 +837,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentNode: {fileID: 217642321}
+  mapCamera: {fileID: 519420028}
+  lerpStrength: 0.05
 --- !u!212 &814235038
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -890,7 +898,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 814235036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.64, y: 2.03, z: -0.4854342}
+  m_LocalPosition: {x: -4.64, y: 2.03, z: 0}
   m_LocalScale: {x: 4.6012015, y: 2.5766172, z: 2.216445}
   m_Children: []
   m_Father: {fileID: 0}
@@ -930,6 +938,7 @@ MonoBehaviour:
   eastNode: {fileID: 0}
   southNode: {fileID: 205036922}
   westNode: {fileID: 1346578844}
+  cameraTarget: {fileID: 0}
 --- !u!212 &908341844
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -989,7 +998,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 908341842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.64, y: 0.03, z: -0.4854342}
+  m_LocalPosition: {x: -4.64, y: 0.03, z: 0}
   m_LocalScale: {x: 4.1604295, y: 2.32979, z: 2.0041206}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1029,6 +1038,7 @@ MonoBehaviour:
   eastNode: {fileID: 0}
   southNode: {fileID: 1268672780}
   westNode: {fileID: 0}
+  cameraTarget: {fileID: 0}
 --- !u!212 &970861707
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1088,7 +1098,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970861705}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3600001, y: 4.03, z: -0.4854342}
+  m_LocalPosition: {x: 1.3600001, y: 4.03, z: 0}
   m_LocalScale: {x: 4.1604295, y: 2.32979, z: 2.0041206}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1128,6 +1138,7 @@ MonoBehaviour:
   eastNode: {fileID: 1268672780}
   southNode: {fileID: 0}
   westNode: {fileID: 217642321}
+  cameraTarget: {fileID: 0}
 --- !u!212 &1036158649
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1187,7 +1198,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036158647}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6399999, y: 2.03, z: -0.4854342}
+  m_LocalPosition: {x: -1.6399999, y: 2.03, z: 0}
   m_LocalScale: {x: 4.1604295, y: 2.32979, z: 2.0041206}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1227,6 +1238,7 @@ MonoBehaviour:
   eastNode: {fileID: 0}
   southNode: {fileID: 0}
   westNode: {fileID: 0}
+  cameraTarget: {fileID: 0}
 --- !u!212 &1206561534
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1286,7 +1298,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1206561532}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6399999, y: -3.97, z: -0.4854342}
+  m_LocalPosition: {x: -1.6399999, y: -3.97, z: 0}
   m_LocalScale: {x: 4.1604295, y: 2.32979, z: 2.0041206}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1326,6 +1338,7 @@ MonoBehaviour:
   eastNode: {fileID: 0}
   southNode: {fileID: 566819512}
   westNode: {fileID: 1036158648}
+  cameraTarget: {fileID: 0}
 --- !u!212 &1268672781
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1385,7 +1398,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1268672779}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3600001, y: 2.03, z: -0.4854342}
+  m_LocalPosition: {x: 1.3600001, y: 2.03, z: 0}
   m_LocalScale: {x: 4.1604295, y: 2.32979, z: 2.0041206}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1425,6 +1438,7 @@ MonoBehaviour:
   eastNode: {fileID: 319255260}
   southNode: {fileID: 1206561533}
   westNode: {fileID: 205036922}
+  cameraTarget: {fileID: 0}
 --- !u!212 &1290556230
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1484,7 +1498,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1290556228}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6399999, y: -1.97, z: -0.4854342}
+  m_LocalPosition: {x: -1.6399999, y: -1.97, z: 0}
   m_LocalScale: {x: 4.1604295, y: 2.32979, z: 2.0041206}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1524,6 +1538,7 @@ MonoBehaviour:
   eastNode: {fileID: 908341843}
   southNode: {fileID: 0}
   westNode: {fileID: 0}
+  cameraTarget: {fileID: 0}
 --- !u!212 &1346578845
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1583,7 +1598,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1346578843}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.39, y: 0.03, z: -0.4854342}
+  m_LocalPosition: {x: -7.39, y: 0.03, z: 0}
   m_LocalScale: {x: 4.1604295, y: 2.32979, z: 2.0041206}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1623,6 +1638,7 @@ MonoBehaviour:
   eastNode: {fileID: 162498217}
   southNode: {fileID: 0}
   westNode: {fileID: 319255260}
+  cameraTarget: {fileID: 0}
 --- !u!212 &1394954825
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1682,7 +1698,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394954823}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.36, y: -1.97, z: -0.4854342}
+  m_LocalPosition: {x: 4.36, y: -1.97, z: 0}
   m_LocalScale: {x: 4.1604295, y: 2.32979, z: 2.0041206}
   m_Children: []
   m_Father: {fileID: 0}

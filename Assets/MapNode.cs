@@ -8,11 +8,14 @@ public class MapNode : MonoBehaviour
     public MapNode eastNode;
     public MapNode southNode;
     public MapNode westNode;
+    public GameObject cameraTarget;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        cameraTarget = new GameObject("CameraTarget");
+        cameraTarget.transform.SetParent(transform);
+        cameraTarget.transform.SetPositionAndRotation(transform.position, transform.rotation);
     }
 
     // Update is called once per frame
