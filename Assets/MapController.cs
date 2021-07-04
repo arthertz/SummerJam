@@ -36,9 +36,9 @@ public class MapController : MonoBehaviour
     }
 
     void LerpCameraToCurrentNode(float lerpStrength) {
+        
         //Get Z component of current position
         float _zComponent = mapCamera.transform.position.z;
-        print(_zComponent);
 
         Vector3 target = new Vector3(
             currentNode.cameraTarget.transform.position.x,
