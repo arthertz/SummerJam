@@ -19,6 +19,7 @@ public class MapNode : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DisableTransitionZones();
         cameraTarget = new GameObject("CameraTarget");
         cameraTarget.transform.SetParent(transform);
         cameraTarget.transform.SetPositionAndRotation(transform.position, transform.rotation);
@@ -26,13 +27,13 @@ public class MapNode : MonoBehaviour
 
     public void EnableTransitionZones () {
         foreach (TransitionZone tz in transitionZones) {
-            tz.enabled = true;
+            tz.gameObject.SetActive(true);
         }
     }
 
     public void DisableTransitionZones () {
         foreach (TransitionZone tz in transitionZones) {
-            tz.enabled = false;
+            tz.gameObject.SetActive(false);
         }
     }
 
@@ -49,5 +50,10 @@ public class MapNode : MonoBehaviour
         DrawDebugConnection(southNode);
         DrawDebugConnection(eastNode);
         DrawDebugConnection(northNode);
+
+        Gizmos.color = Color.green;
+        foreach (TransitionZone tz in transitionZones) {
+            Gizmos.DrawLine(tz.transform.position, transform.position);
+        }
     }
 }

@@ -33,10 +33,12 @@ public class MapController : MonoBehaviour
                 Quaternion.identity
             );
         }
+
+        currentNode.EnableTransitionZones();
     }
 
     void LerpCameraToCurrentNode(float lerpStrength) {
-        
+
         //Get Z component of current position
         float _zComponent = mapCamera.transform.position.z;
 
@@ -84,6 +86,7 @@ public class MapController : MonoBehaviour
     void TransitionToNode(MapNode newNode) {
 
         currentNode.DisableTransitionZones();
+        newNode.EnableTransitionZones();
 
         currentNode = newNode;
 
@@ -92,8 +95,6 @@ public class MapController : MonoBehaviour
         if (player && teleportTransitions) {
             player.transform.position = currentNode.transform.position;
         }
-
-        currentNode.EnableTransitionZones();
     }
 
     // Update is called once per frame

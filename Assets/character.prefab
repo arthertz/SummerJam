@@ -129,8 +129,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.13190977}
-  m_Size: {x: 0.4, y: 0.22618045}
+  m_Offset: {x: 0, y: 0.08036368}
+  m_Size: {x: 0.4, y: 0.32927263}
   m_Direction: 0
 --- !u!50 &5358510762482735801
 Rigidbody2D:
@@ -169,4 +169,4 @@ MonoBehaviour:
   hoverPower: 200
   dampeningParam: 20
   maxHorizontalVelocity: 2
-  hoverHeight: 0.6
+  hoverHeight: 0.65
