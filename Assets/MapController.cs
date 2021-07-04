@@ -39,6 +39,14 @@ public class MapController : MonoBehaviour
         mapCamera.transform.position = Vector3.Lerp(mapCamera.transform.position, target, lerpStrength);
     }
 
+    void TransitionToNode(MapNode newNode) {
+        currentNode = newNode;
+        transform.position = currentNode.transform.position;
+        if (player) {
+            player.transform.position = currentNode.transform.position;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -50,32 +58,28 @@ public class MapController : MonoBehaviour
         {
             if (currentNode.northNode != null)
             {
-                currentNode = currentNode.northNode;
-                transform.position = currentNode.transform.position;
+                TransitionToNode(currentNode.northNode);
             }
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
             if (currentNode.westNode != null)
             {
-                currentNode = currentNode.westNode;
-                transform.position = currentNode.transform.position;
+                TransitionToNode(currentNode.westNode);
             }
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
             if (currentNode.southNode != null)
             {
-                currentNode = currentNode.southNode;
-                transform.position = currentNode.transform.position;
+                TransitionToNode(currentNode.southNode);
             }
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
             if (currentNode.eastNode != null)
             {
-                currentNode = currentNode.eastNode;
-                transform.position = currentNode.transform.position;
+                TransitionToNode(currentNode.eastNode);
             }
         }
     }

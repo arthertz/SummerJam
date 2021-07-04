@@ -13,7 +13,6 @@ public class CharacterController : MonoBehaviour
     public float hoverHeight = 1f;
     private Rigidbody2D body;
 
-    public Text label;
 
     // Start is called before the first frame update
     void Start()
@@ -41,15 +40,6 @@ public class CharacterController : MonoBehaviour
         if (hit.collider != null)
         {
             float hoverDifference = hoverHeight - hit.distance;
-
-            if (hoverDifference < 0.2f)
-            {
-                label.text = "grounded";
-            }
-            else
-            {
-                label.text = "NOT grounded";
-            }
 
             if (hoverDifference > 0)
             {
