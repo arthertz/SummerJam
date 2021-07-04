@@ -700,7 +700,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30f97a0d6e800c347938e08507fe8a4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalPower: 1
+  horizontalPower: 200
+  hoverPower: 200
+  dampeningParam: 20
+  maxHorizontalVelocity: 2
+  hoverHeight: 0.6
 --- !u!50 &839772671
 Rigidbody2D:
   serializedVersion: 4
@@ -721,7 +725,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &839772672
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -735,8 +739,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.12}
-  m_Size: {x: 0.5, y: 0.25}
+  m_Offset: {x: 0, y: 0.13190977}
+  m_Size: {x: 0.5, y: 0.22618045}
   m_Direction: 0
 --- !u!212 &839772673
 SpriteRenderer:
