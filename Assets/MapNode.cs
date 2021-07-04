@@ -5,7 +5,7 @@ using UnityEngine;
 public class MapNode : MonoBehaviour
 {
 
-    public List<TransitionZone> transitionZones = new List<TransitionZone>();
+    List<TransitionZone> transitionZones = new List<TransitionZone>();
 
     public MapNode northNode;
     public MapNode eastNode;
@@ -19,11 +19,22 @@ public class MapNode : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        InitializeTransitionZoneList();
         DisableTransitionZones();
         cameraTarget = new GameObject("CameraTarget");
         cameraTarget.transform.SetParent(transform);
         cameraTarget.transform.SetPositionAndRotation(transform.position, transform.rotation);
     }
+
+
+    void InitializeTransitionZoneList () {
+        transitionZones.Clear();
+
+        foreach (TransitionZone tz in transform.GetComponentsInChildren(typeof(TransitionZone))) {
+            transitionZones.Add(tz);
+        }
+    }
+
 
     public void EnableTransitionZones () {
         foreach (TransitionZone tz in transitionZones) {

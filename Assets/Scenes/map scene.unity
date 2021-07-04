@@ -3640,7 +3640,7 @@ GameObject:
   - component: {fileID: 412664087}
   m_Layer: 0
   m_Name: westTransition
-  m_TagString: Untagged
+  m_TagString: TransitionZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4634,7 +4634,7 @@ GameObject:
   - component: {fileID: 482243658}
   m_Layer: 0
   m_Name: eastTransition
-  m_TagString: Untagged
+  m_TagString: TransitionZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13449,7 +13449,7 @@ GameObject:
   - component: {fileID: 1767027607}
   m_Layer: 0
   m_Name: northTransition
-  m_TagString: Untagged
+  m_TagString: TransitionZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14334,7 +14334,7 @@ GameObject:
   - component: {fileID: 1936055446}
   m_Layer: 0
   m_Name: southTransition
-  m_TagString: Untagged
+  m_TagString: TransitionZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
