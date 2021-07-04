@@ -7,12 +7,22 @@ public class MapController : MonoBehaviour
     public MapNode currentNode;
     public GameObject mapCamera;
 
+    public GameObject playerPrefab;
+
+    private GameObject player;
+
     public float lerpStrength = .2f;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        if (!player && playerPrefab) {
+            player = GameObject.Instantiate(
+                playerPrefab,
+                currentNode.cameraTarget.transform.position,
+                Quaternion.identity
+            );
+        }
     }
 
     void LerpCameraToCurrentNode(float lerpStrength) {
