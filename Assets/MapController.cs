@@ -41,7 +41,9 @@ public class MapController : MonoBehaviour
 
     void TransitionToNode(MapNode newNode) {
         currentNode = newNode;
+
         transform.position = currentNode.transform.position;
+        
         if (player) {
             player.transform.position = currentNode.transform.position;
         }

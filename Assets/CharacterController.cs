@@ -20,17 +20,24 @@ public class CharacterController : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
     }
 
-    private void FixedUpdate()
-    {
-        horizontalForce = Input.GetAxis("Horizontal") * horizontalPower;
-        body.AddForce(horizontalForce * Vector2.right);
-        body.velocity = new Vector2(Mathf.Sign(body.velocity.x) * Mathf.Min(body.velocity.magnitude, maxHorizontalVelocity),
-                                        body.velocity.y);
-
+    void Update () {
         if (Mathf.Abs(Input.GetAxis("Horizontal")) < .05)
         {
-            body.velocity -= new Vector2(body.velocity.x, 0);
+            body.velocity = new Vector2(0, body.velocity.y);
         }
+    }
+
+    private void FixedUpdate()
+    {
+        if (Mathf.Abs(Input.GetAxis("Horizontal")) < .05)
+        {
+            body.velocity = new Vector2(0, body.velocity.y);
+        }
+        horizontalForce = Input.GetAxis("Horizontal") * horizontalPower;
+        body.AddForce(horizontalForce * Vector2.right);
+        body.velocity = new Vector2(Mathf.Sign(body.velocity.x) * Mathf.Min(Mathf.Abs(body.velocity.x), maxHorizontalVelocity),
+                                        body.velocity.y);
+
 
         RaycastHit2D hit;
         Ray2D downRay = new Ray2D(transform.position, Vector2.down);
