@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CharacterController : MonoBehaviour
 {
@@ -13,11 +12,63 @@ public class CharacterController : MonoBehaviour
     public float hoverHeight = 1f;
     private Rigidbody2D body;
 
+    private bool grounded = false; // for ground detection
+    private bool ascending = false;
+    private int jumpNum = 0; // for double jump
 
+    private Vector3 originalSpriteScale;
+    private bool spriteLerping = false;
+    private float spriteLerp = 0.0f;
+    private GameObject sprite;
     // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        sprite = transform.Find("sprite").gameObject; // pls don't rename the child
+        originalSpriteScale = sprite.transform.localScale;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && ((grounded && !ascending) || jumpNum < 1))
+        {
+            body.AddForce(500f * Vector2.up);
+            ascending = true;
+            jumpNum++;
+
+            // shit for graphics lerping
+            spriteLerping = true;
+            spriteLerp = 0.0f;
+            sprite.transform.localScale = originalSpriteScale;
+        }
+        if (!Input.GetKey(KeyCode.Space))
+        {
+            body.gravityScale = 3f;
+        }
+        else
+        {
+            body.gravityScale = 2f;
+        }
+
+        if (spriteLerping)
+        {
+            spriteLerp += Time.deltaTime * 2f;
+            Vector3 sizeChange;
+            if (spriteLerp < 0.6f)
+            {
+                sizeChange = new Vector3(sprite.transform.localScale.x - spriteLerp / 80f, sprite.transform.localScale.y + spriteLerp / 80f, sprite.transform.localScale.z);
+            }
+            else
+            {
+                sizeChange = new Vector3(sprite.transform.localScale.x + spriteLerp / 100f, sprite.transform.localScale.y - spriteLerp / 100f, sprite.transform.localScale.z);
+            }
+            sprite.transform.localScale = sizeChange;
+            if (spriteLerp >= 1f)
+            {
+                sprite.transform.localScale = originalSpriteScale;
+                spriteLerping = false;
+            }
+        }
     }
 
     void Update () {
@@ -48,6 +99,13 @@ public class CharacterController : MonoBehaviour
         {
             float hoverDifference = hoverHeight - hit.distance;
 
+            if (hoverDifference < 0.2f)
+            {
+                ascending = false;
+                grounded = true;
+                jumpNum = 0;
+            }
+
             if (hoverDifference > 0)
             {
                 // Subtract the damping from the lifting force and apply it to
@@ -57,6 +115,10 @@ public class CharacterController : MonoBehaviour
                 body.AddForce(lift * Vector3.up);
             }
         }
-        Debug.DrawRay(downRay.origin, downRay.direction, Color.red);
+        else
+        {
+            grounded = false;
+        }
+        //Debug.DrawRay(downRay.origin, downRay.direction, Color.red);
     }
 }
