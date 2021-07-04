@@ -805,6 +805,7 @@ MonoBehaviour:
   dampeningParam: 20
   maxHorizontalVelocity: 2
   hoverHeight: 0.6
+  label: {fileID: 1233888283}
 --- !u!50 &839772671
 Rigidbody2D:
   serializedVersion: 4

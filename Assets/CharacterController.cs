@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterController : MonoBehaviour
 {
@@ -9,10 +10,10 @@ public class CharacterController : MonoBehaviour
     public float hoverPower = 100.0f;
     public float dampeningParam = .5f;
     public float maxHorizontalVelocity = 2f;
-
+    public float hoverHeight = 1f;
     private Rigidbody2D body;
 
-    public float hoverHeight = 1f;
+    public Text label;
 
     // Start is called before the first frame update
     void Start()
@@ -40,9 +41,15 @@ public class CharacterController : MonoBehaviour
         if (hit.collider != null)
         {
             float hoverDifference = hoverHeight - hit.distance;
-            Debug.Log("hit object " + hit.collider.transform.name);
-            Debug.Log("hit distance: " + hit.distance);
-            Debug.Log("hover height: " + hoverHeight);
+
+            if (hoverDifference < 0.2f)
+            {
+                label.text = "grounded";
+            }
+            else
+            {
+                label.text = "NOT grounded";
+            }
 
             if (hoverDifference > 0)
             {
