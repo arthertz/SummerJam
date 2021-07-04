@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 5358510762482735430}
   - component: {fileID: 5358510762482735801}
   - component: {fileID: 5358510762482735800}
+  - component: {fileID: -1985570906648053836}
   m_Layer: 0
   m_Name: character
   m_TagString: Untagged
@@ -170,3 +171,15 @@ MonoBehaviour:
   dampeningParam: 20
   maxHorizontalVelocity: 2
   hoverHeight: 0.65
+--- !u!114 &-1985570906648053836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5358510762482735803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c186f340a2051c94aaaf3d6c3188eb7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -12,20 +12,17 @@ public class CharacterController : MonoBehaviour
     public float hoverHeight = 1f;
     private Rigidbody2D body;
 
+    private DirectionalLerp lerpHandler;
+
     private bool grounded = false; // for ground detection
     private bool ascending = false;
     private int jumpNum = 0; // for double jump
 
-    private Vector3 originalSpriteScale;
-    private bool spriteLerping = false;
-    private float spriteLerp = 0.0f;
-    private GameObject sprite;
     // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
-        sprite = transform.Find("sprite").gameObject; // pls don't rename the child
-        originalSpriteScale = sprite.transform.localScale;
+        lerpHandler = GetComponent<DirectionalLerp>();
     }
 
     private void Update()
@@ -36,10 +33,7 @@ public class CharacterController : MonoBehaviour
             ascending = true;
             jumpNum++;
 
-            // shit for graphics lerping
-            spriteLerping = true;
-            spriteLerp = 0.0f;
-            sprite.transform.localScale = originalSpriteScale;
+            lerpHandler.JumpLerp();
         }
         if (!Input.GetKey(KeyCode.Space))
         {
@@ -50,25 +44,6 @@ public class CharacterController : MonoBehaviour
             body.gravityScale = 2f;
         }
 
-        if (spriteLerping)
-        {
-            spriteLerp += Time.deltaTime * 2f;
-            Vector3 sizeChange;
-            if (spriteLerp < 0.6f)
-            {
-                sizeChange = new Vector3(sprite.transform.localScale.x - spriteLerp / 80f, sprite.transform.localScale.y + spriteLerp / 80f, sprite.transform.localScale.z);
-            }
-            else
-            {
-                sizeChange = new Vector3(sprite.transform.localScale.x + spriteLerp / 100f, sprite.transform.localScale.y - spriteLerp / 100f, sprite.transform.localScale.z);
-            }
-            sprite.transform.localScale = sizeChange;
-            if (spriteLerp >= 1f)
-            {
-                sprite.transform.localScale = originalSpriteScale;
-                spriteLerping = false;
-            }
-        }
     }
 
     private void FixedUpdate()
