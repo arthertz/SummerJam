@@ -4900,7 +4900,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.35
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -7359,7 +7359,7 @@ MonoBehaviour:
   mapCamera: {fileID: 519420028}
   playerPrefab: {fileID: 5358510762482735803, guid: 872253ea19f412e48804f3904662e8da, type: 3}
   teleportTransitions: 0
-  lerpStrength: 0.05
+  lerpStrength: 0.1
 --- !u!212 &814235038
 SpriteRenderer:
   m_ObjectHideFlags: 0
