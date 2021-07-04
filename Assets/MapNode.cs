@@ -27,6 +27,7 @@ public class MapNode : MonoBehaviour
     }
 
 
+    [ContextMenu("Generate transition zone list")]
     void InitializeTransitionZoneList () {
         transitionZones.Clear();
 
