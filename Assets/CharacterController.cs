@@ -71,13 +71,6 @@ public class CharacterController : MonoBehaviour
         }
     }
 
-    void Update () {
-        if (Mathf.Abs(Input.GetAxis("Horizontal")) < .05)
-        {
-            body.velocity = new Vector2(0, body.velocity.y);
-        }
-    }
-
     private void FixedUpdate()
     {
         if (Mathf.Abs(Input.GetAxis("Horizontal")) < .05)
