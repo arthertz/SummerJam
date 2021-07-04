@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MapController : MonoBehaviour
 {
+    public static UnityEvent<TransitionZone.TransitionDirection> TransitionEvent;
+
     public MapNode currentNode;
     public GameObject mapCamera;
 
@@ -11,11 +14,18 @@ public class MapController : MonoBehaviour
 
     private GameObject player;
 
+    public bool teleportTransitions = false;
+
     public float lerpStrength = .2f;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (TransitionEvent == null) {
+            TransitionEvent = new UnityEvent<TransitionZone.TransitionDirection>();
+            TransitionEvent.AddListener(TransitionDirection);
+        }
+
         if (!player && playerPrefab) {
             player = GameObject.Instantiate(
                 playerPrefab,
@@ -39,14 +49,51 @@ public class MapController : MonoBehaviour
         mapCamera.transform.position = Vector3.Lerp(mapCamera.transform.position, target, lerpStrength);
     }
 
+    void TransitionDirection (TransitionZone.TransitionDirection direction) {
+        switch (direction) {
+            case TransitionZone.TransitionDirection.North:
+            if (currentNode.northNode != null)
+            {
+                TransitionToNode(currentNode.northNode);
+            }
+            break;
+
+            case TransitionZone.TransitionDirection.South:
+            if (currentNode.southNode != null)
+            {
+                TransitionToNode(currentNode.southNode);
+            }
+            break;
+
+            case TransitionZone.TransitionDirection.East:
+            if (currentNode.eastNode != null)
+            {
+                TransitionToNode(currentNode.eastNode);
+            }
+            break;
+
+            case TransitionZone.TransitionDirection.West:
+            if (currentNode.westNode != null)
+            {
+                TransitionToNode(currentNode.westNode);
+            }
+            break;
+        }
+    }
+
     void TransitionToNode(MapNode newNode) {
+
+        currentNode.DisableTransitionZones();
+
         currentNode = newNode;
 
         transform.position = currentNode.transform.position;
         
-        if (player) {
+        if (player && teleportTransitions) {
             player.transform.position = currentNode.transform.position;
         }
+
+        currentNode.EnableTransitionZones();
     }
 
     // Update is called once per frame
@@ -54,35 +101,6 @@ public class MapController : MonoBehaviour
     {
         if (currentNode) {
            LerpCameraToCurrentNode(lerpStrength);
-        }
-
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            if (currentNode.northNode != null)
-            {
-                TransitionToNode(currentNode.northNode);
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            if (currentNode.westNode != null)
-            {
-                TransitionToNode(currentNode.westNode);
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            if (currentNode.southNode != null)
-            {
-                TransitionToNode(currentNode.southNode);
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            if (currentNode.eastNode != null)
-            {
-                TransitionToNode(currentNode.eastNode);
-            }
         }
     }
 }

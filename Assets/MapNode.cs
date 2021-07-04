@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class MapNode : MonoBehaviour
 {
+
+    public List<TransitionZone> transitionZones = new List<TransitionZone>();
+
     public MapNode northNode;
     public MapNode eastNode;
     public MapNode southNode;
     public MapNode westNode;
+
     public GameObject cameraTarget;
 
     private BoxCollider2D[] boundaryTriggers;
@@ -20,10 +24,16 @@ public class MapNode : MonoBehaviour
         cameraTarget.transform.SetPositionAndRotation(transform.position, transform.rotation);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void EnableTransitionZones () {
+        foreach (TransitionZone tz in transitionZones) {
+            tz.enabled = true;
+        }
+    }
+
+    public void DisableTransitionZones () {
+        foreach (TransitionZone tz in transitionZones) {
+            tz.enabled = false;
+        }
     }
 
     void DrawDebugConnection(MapNode otherNode) {
