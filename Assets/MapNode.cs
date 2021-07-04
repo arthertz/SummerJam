@@ -10,6 +10,8 @@ public class MapNode : MonoBehaviour
     public MapNode westNode;
     public GameObject cameraTarget;
 
+    private BoxCollider2D[] boundaryTriggers;
+
     // Start is called before the first frame update
     void Start()
     {
